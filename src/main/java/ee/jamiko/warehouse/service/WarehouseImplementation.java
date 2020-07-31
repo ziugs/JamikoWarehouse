@@ -13,6 +13,7 @@ public class WarehouseImplementation implements WarehouseService  {
     @Autowired
     WarehouseRepository warehouseRepository;
 
+
     @Override
     public List<Warehouse> findAll() {
         return warehouseRepository.findAll();
@@ -26,17 +27,15 @@ public class WarehouseImplementation implements WarehouseService  {
 
     @Override
     public Warehouse findById(Long id) {
-        if (warehouseRepository.findById(id).isPresent()) {
-            return warehouseRepository.findById(id).get();
-        }
-        return null;
+        return warehouseRepository.findById(id).get();
     }
 
     @Override
-    public void delete(Long id) {
+    public void deleteById(Long id) {
         Warehouse warehouse = findById(id);
         warehouseRepository.delete(warehouse);
     }
+
 
 
 }

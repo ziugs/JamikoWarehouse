@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name="warehouse")
@@ -16,17 +18,15 @@ import javax.persistence.*;
 public class Warehouse {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue (strategy= GenerationType.IDENTITY)
     private long id;
 
-    private String dateSold;
+    private Date dateSold;
     private String product;
     private String size;
-    private float salePrice;
-    private float purchasePrice;
-    private float shippingPrice;
-    private float profit;
-
-
+    private BigDecimal salePrice;
+    private BigDecimal purchasePrice;
+    private BigDecimal shippingPrice;
+    private BigDecimal profit;
 
 }
